@@ -86,6 +86,10 @@ permissions:
     description: Changes whether the armor stand has gravity
     default: false
 
+  asedit.disableCreativeBreak:
+    description: Disables breaking of ArmorStands in Creative Mode
+    default: false
+
   asedit.ignoreProtection.towny:
     description: Allows user to ignore Towny's Protection Limitations.
     default: false
