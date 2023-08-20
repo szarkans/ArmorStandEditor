@@ -274,8 +274,8 @@ public class PlayerEditorManager implements Listener {
             if (!nearby.isEmpty()) {
                 boolean endLaser = false;
                 for ( Entity e : nearby) {
-                    if (e instanceof ArmorStand) {
-                        armorStands.add((ArmorStand) e);
+                    if (e instanceof ArmorStand stand) {
+                        armorStands.add(stand);
                         endLaser = true;
                     }
                 }
@@ -305,8 +305,8 @@ public class PlayerEditorManager implements Listener {
             if (!nearby.isEmpty()) {
                 boolean endLaser = false;
                 for ( Entity e : nearby) {
-                    if (e instanceof ItemFrame) {
-                        itemFrames.add((ItemFrame) e);
+                    if (e instanceof ItemFrame frame) {
+                        itemFrames.add(frame);
                         endLaser = true;
                     }
                 }
