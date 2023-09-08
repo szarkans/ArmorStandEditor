@@ -326,6 +326,11 @@ public class PlayerEditorManager implements Listener {
         //Get the Entity being checked for editing
         Block block = entity.getLocation().getBlock();
 
+        if (!plugin.allowedWorldList.contains(player.getWorld().getName())) { //Implementation for Per World ASE
+            getPlayerEditor(player.getUniqueId()).sendMessage("notincorrectworld", "warn");
+            return false;
+        }
+
         // Check if all protections allow this edit, if one fails, don't allow edit
         return protections.stream().allMatch(protection -> protection.checkPermission(block, player));
     }
