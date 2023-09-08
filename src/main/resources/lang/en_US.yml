@@ -88,6 +88,8 @@ playerheaderror:
   msg: Unable to Retrieve Player Head.
 unabledestroycreative:
   msg: Unable to Destroy this Invulnerable ArmorStand in Creative Mode.
+notincorrectworld:
+  msg: Sorry but you are not in the correct world to use ArmorStandEditor.
 playerheadhelp:
   msg: "Please use /ase playerhead <name> to get a players head. Ex of the command - /ase playerhead Wolfieheart_"
 help:

@@ -88,7 +88,10 @@ nogive:
   msg: You have no permission to use the give command!
 playerheaderror:
   msg: Unable to Retrieve Player Head.
-
+notincorrectworld:
+  msg: Sorry but you are not in the correct world to use ArmorStandEditor.
+unabledestroycreative:
+  msg: Unable to Destroy this Invulnerable ArmorStand in Creative Mode.
 #menutitle
 mainmenutitle:
   msg: Armor Stand Editor Menu

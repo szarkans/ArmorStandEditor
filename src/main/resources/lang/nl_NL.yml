@@ -70,7 +70,10 @@ nodoubletarget:
   msg: Kijk naar een ArmorStand of een ItemFrame voor je van hand verandert!
 give:
   msg: Speler heeft een item met CustomModelData ontvangen
-
+notincorrectworld:
+  msg: Sorry, maar uw zijn niet in de juiste wierld om ArmorStandEditor te gebruiken.
+unabledestroycreative:
+  msg: Kan deze Invulnerable ArmorStand niet vernietigen in Creative Modus.
 #Help
 help:
   msg: "1. Houd het wijzigingsgereedschap (<x>) in uw hoofdhand.

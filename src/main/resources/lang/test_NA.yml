@@ -75,7 +75,10 @@ toggleinvulnerability:
   msg: ArmorStand vulnerability state has been toggled to <x>.
   true: invulnerable
   false: vulnerable
-
+notincorrectworld:
+  msg: Sorry but you are not in the correct world to use ArmorStandEditor.
+unabledestroycreative:
+  msg: Unable to Destroy this Invulnerable ArmorStand in Creative Mode.
 #menutitle
 mainmenutitle:
   msg: Armor Stand Editor Menu

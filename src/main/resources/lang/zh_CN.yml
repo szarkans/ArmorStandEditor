@@ -102,7 +102,10 @@ noplayerhead:
   msg: Please turn on the ability to retrieve player heads in the config file.
 playerheaderror:
   msg: Unable to Retrieve Player Head.
-
+notincorrectworld:
+  msg: Sorry but you are not in the correct world to use ArmorStandEditor.
+unabledestroycreative:
+  msg: Unable to Destroy this Invulnerable ArmorStand in Creative Mode.
 #警告
 cantedit:
   msg: 对不起,你无法在这编辑盔甲架!
