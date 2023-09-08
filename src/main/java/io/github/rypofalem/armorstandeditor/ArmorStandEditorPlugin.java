@@ -79,6 +79,7 @@ public class ArmorStandEditorPlugin extends JavaPlugin {
     String editToolName = null;
     boolean requireToolLore = false;
     List<?> editToolLore = null;
+    List<?> allowedWorldList = null;
     boolean allowCustomModelData = false;
     Integer customModelDataInt = Integer.MIN_VALUE;
 
@@ -225,6 +226,7 @@ public class ArmorStandEditorPlugin extends JavaPlugin {
             editToolLore = getConfig().getList("toolLore", null);
         }
 
+        allowedWorldList = getConfig().getList("allowed-worlds", null);
 
         //Require Sneaking - Wolfst0rm/ArmorStandEditor#17
         requireSneaking = getConfig().getBoolean("requireSneaking", false);
@@ -556,6 +558,8 @@ public class ArmorStandEditorPlugin extends JavaPlugin {
         if (requireToolLore) {
             editToolLore = getConfig().getList("toolLore", null);
         }
+
+        allowedWorldList = getConfig().getList("allowed-worlds", null);
 
         //Require Sneaking - Wolfst0rm/ArmorStandEditor#17
         requireSneaking = getConfig().getBoolean("requireSneaking", false);
