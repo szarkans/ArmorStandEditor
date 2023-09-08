@@ -326,11 +326,6 @@ public class PlayerEditorManager implements Listener {
         //Get the Entity being checked for editing
         Block block = entity.getLocation().getBlock();
 
-        if (!plugin.allowedWorldList.contains(player.getWorld().getName())) { //Implementation for Per World ASE
-            getPlayerEditor(player.getUniqueId()).sendMessage("notincorrectworld", "warn");
-            return false;
-        }
-
         // Check if all protections allow this edit, if one fails, don't allow edit
         return protections.stream().allMatch(protection -> protection.checkPermission(block, player));
     }
@@ -366,6 +361,13 @@ public class PlayerEditorManager implements Listener {
         if (!plugin.isEditTool(player.getInventory().getItemInMainHand())) return;
         if (plugin.requireSneaking && !player.isSneaking()) return;
         if (!player.hasPermission("asedit.basic")) return;
+
+        if (!plugin.allowedWorldList.contains(player.getWorld().getName())) { //Implementation for Per World ASE
+            getPlayerEditor(player.getUniqueId()).sendMessage("notincorrectworld", "warn");
+            e.setCancelled(true);
+            return;
+        }
+
         e.setCancelled(true);
         getPlayerEditor(player.getUniqueId()).openMenu();
     }
