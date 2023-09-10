@@ -252,9 +252,8 @@ public class PlayerEditorManager implements Listener {
             getPlayerEditor(player.getUniqueId()).setTarget(as);
         } else if (itemF != null && !itemF.isEmpty()) {
             getPlayerEditor(player.getUniqueId()).setFrameTarget(itemF);
-        } else { //TODO: Fix the sending of the message Twice in this Statement
-            getPlayerEditor(player.getUniqueId()).setTarget(null);
-            getPlayerEditor(player.getUniqueId()).setFrameTarget(null);
+        } else {
+            getPlayerEditor(player.getUniqueId()).sendMessage("nodoubletarget","warn");
         }
     }
 
@@ -363,7 +362,7 @@ public class PlayerEditorManager implements Listener {
         if (!player.hasPermission("asedit.basic")) return;
 
         if (!plugin.allowedWorldList.contains(player.getWorld().getName())) { //Implementation for Per World ASE
-            player.sendMessage("notincorrectworld", "warn");
+            getPlayerEditor(player.getUniqueId()).sendMessage("notincorrectworld", "warn");
             e.setCancelled(true);
             return;
         }
