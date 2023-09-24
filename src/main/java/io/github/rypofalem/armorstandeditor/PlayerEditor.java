@@ -408,8 +408,11 @@ public class PlayerEditor {
     }
 
     void toggleVisible(ArmorStand armorStand) {
-        if (!getPlayer().hasPermission("asedit.togglearmorstandvisibility") || !plugin.armorStandVisibility) return; //Option to use perms or Config
-        armorStand.setVisible(!armorStand.isVisible());
+        if(getPlayer().hasPermission("asedit.togglearmorstandvisibility") || plugin.getArmorStandVisibility()){
+            armorStand.setVisible(!armorStand.isVisible());
+        } else{
+            getPlayer().sendMessage();
+        }
     }
 
     void toggleItemFrameVisible(ItemFrame itemFrame) {
