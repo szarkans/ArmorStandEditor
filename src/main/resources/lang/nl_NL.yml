@@ -106,6 +106,20 @@ cantedit:
   msg: Sorry, je kunt hier geen armorstands aanpassen!
 noperm:
   msg: Sorry, je hebt geen tostemming om dit command te gebruiken!
+nopermoption:
+  msg: Sorry, je hebt geen tostemming om <x> optie te gebruiken!
+  basic: Normal ArmorStand
+  showarms: Show Arms
+  armorstandvisibility: Armor Stand Visibility
+  baseplate: Set Baseplate Visibility
+  gravity: Toggle Gravity
+  vulnerability: Toggle Vulnerability!
+  itemframevisibility: Item Frame Visibility
+  size: Toggle ArmorStand Size
+  disableslots: Toggle Equipment Lock
+  paste: Paste ArmorStand Config
+  copy: Copy ArmorStand Config
+  reset: Reset ArmorStand Config
 noslotnumcom:
   msg: Je moet een slot nummer opgeven!
 noadjcom:
@@ -226,6 +240,11 @@ vulnerability:
   msg: Kwetsbaarheid
   description:
     msg: In en uit schakelen van Kwetsbaarheid.
+blankslot:
+  msg: Niets hier
+  description:
+    msg: Gewoon een placeholder item. Op mij klikken zal niets doen.
+
 #icons (equipment menu)
 disabled:
   msg: Uitgeschakeld

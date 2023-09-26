@@ -110,6 +110,20 @@ cantedit:
   msg: Entschuldigung, du kannst hier keine Rüstungsständer bearbeiten!
 noperm:
   msg: Du hast keine Erlaubnis diesen Befehl zu nutzen!
+nopermoption:
+  msg: You don't have permission to use the <x> Option!
+  basic: Normal ArmorStand
+  showarms: Show Arms
+  armorstandvisibility: Armor Stand Visibility
+  baseplate: Set Baseplate Visibility
+  gravity: Toggle Gravity
+  vulnerability: Toggle Vulnerability!
+  itemframevisibility: Item Frame Visibility
+  size: Toggle ArmorStand Size
+  disableslots: Toggle Equipment Lock
+  paste: Paste ArmorStand Config
+  copy: Copy ArmorStand Config
+  reset: Reset ArmorStand Config
 noslotnumcom:
   msg: Du musst eine Slotnummer angeben!
 noadjcom:
@@ -232,6 +246,10 @@ helpgui:
   msg: Hilfe!
   description:
     msg: Klicke hier um Hilfe zu erhalten!
+blankslot:
+  msg: Nothing here
+  description:
+    msg: Just a placeholder item. Clicking me will not do anything.
 
 #icons (equipment menu)
 disabled:

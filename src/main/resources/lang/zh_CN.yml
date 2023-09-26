@@ -112,6 +112,20 @@ cantedit:
   msg: 对不起, 你无法在这里编辑盔甲架!
 noperm:
   msg: 你没有权限这样做!
+nopermoption:
+  msg: You don't have permission to use the <x> Option!
+  basic: Normal ArmorStand
+  showarms: Show Arms
+  armorstandvisibility: Armor Stand Visibility
+  baseplate: Set Baseplate Visibility
+  gravity: Toggle Gravity
+  vulnerability: Toggle Vulnerability!
+  itemframevisibility: Item Frame Visibility
+  size: Toggle ArmorStand Size
+  disableslots: Toggle Equipment Lock
+  paste: Paste ArmorStand Config
+  copy: Copy ArmorStand Config
+  reset: Reset ArmorStand Config
 noslotnumcom:
   msg: 你必须选择一个物品栏!
 noadjcom:
@@ -236,7 +250,10 @@ itemframevisible:
   msg: 物品展示框显隐切换
   description:
     msg: 显示/隐形物品展示框
-    
+blankslot:
+  msg: Nothing here
+  description:
+    msg: Just a placeholder item. Clicking me will not do anything.
 #图标 (装备)
 disabled:
   msg: 关闭

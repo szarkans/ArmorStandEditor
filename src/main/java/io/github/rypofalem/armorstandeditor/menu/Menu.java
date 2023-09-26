@@ -87,7 +87,8 @@ public class Menu {
         ItemStack toggleVulnerabilty = null;
 
         //Slots with No Value
-        blankSlot = createIcon(new ItemStack(Material.BLACK_STAINED_GLASS_PANE, 1), "", "");
+        blankSlot = createIcon(new ItemStack(Material.BLACK_STAINED_GLASS_PANE, 1),
+                "blankslot", "");
 
         //Axis - X, Y, Z for Movement
         xAxis = createIcon(new ItemStack(Material.RED_CONCRETE, 1),
