@@ -56,13 +56,14 @@ public class PlotSquaredProtection implements Protection {
 
         //Get the Area of the PLot
         PlotArea area = plotLocation.getPlotArea();
-        if(area == null){ //If the Area is not a Plot, then we assume its a road, we return if a player can build on roads or not
-            return player.hasPermission("plots.admin.build.road");
-        }
+
+        //If the Area is not a Plot, then we assume its a road, we return if a player can build on roads or not
+        if(area == null) return player.hasPermission("plots.admin.build.road");
 
         //Get the Plot
         Plot plot = area.getPlot(plotLocation);
-        //If Plot is
+
+        //Rerun the Area check
         if(plot == null) return player.hasPermission("plots.admin.build.road");
 
         //Get the Player
