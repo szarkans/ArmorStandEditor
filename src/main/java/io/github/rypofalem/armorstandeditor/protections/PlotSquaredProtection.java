@@ -19,24 +19,31 @@
 package io.github.rypofalem.armorstandeditor.protections;
 
 import com.plotsquared.bukkit.BukkitPlatform;
+import com.plotsquared.core.PlotAPI;
 import com.plotsquared.core.location.Location;
+import com.plotsquared.core.player.PlotPlayer;
 import com.plotsquared.core.plot.Plot;
 import com.plotsquared.core.plot.PlotArea;
 
+import com.sk89q.worldedit.math.BlockVector3;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
+import java.util.UUID;
+
 public class PlotSquaredProtection implements Protection {
 
     private final boolean psEnabled;
-    private BukkitPlatform psPlatform = null;
+    private PlotAPI plotAPI = null;
 
     public PlotSquaredProtection() {
         psEnabled = Bukkit.getPluginManager().isPluginEnabled("PlotSquared");
 
         if (!psEnabled) return;
-        psPlatform = (BukkitPlatform) Bukkit.getPluginManager().getPlugin("PlotSquared");
+        if(plotAPI == null) return;
+        plotAPI = new PlotAPI();
+
     }
 
     public boolean checkPermission(Block block, Player player) {
@@ -44,14 +51,29 @@ public class PlotSquaredProtection implements Protection {
         if (player.isOp()) return true;
         if (player.hasPermission("asedit.ignoreProtection.plotSquared")) return true;
 
-        Location location = Location.at(block.getWorld().getName(),
-            block.getLocation().getBlockX(),
-            block.getLocation().getBlockY(),
-            block.getLocation().getBlockZ());
+        //Get the Location of the Plot
+        Location plotLocation = Location.at(player.getWorld().getName(), BlockVector3.at(block.getX(), block.getY(), block.getZ()));
 
-        PlotArea area = psPlatform.plotAreaManager().getPlotArea(location);
-        if (area == null) return true;
-        Plot plot = area.getPlot(location);
-        return plot == null || plot.isAdded(player.getUniqueId());
+        //Get the Area of the PLot
+        PlotArea area = plotLocation.getPlotArea();
+        if(area == null){ //If the Area is not a Plot, then we assume its a road, we return if a player can build on roads or not
+            return player.hasPermission("plots.admin.build.road");
+        }
+
+        //Get the Plot
+        Plot plot = area.getPlot(plotLocation);
+        //If Plot is
+        if(plot == null) return player.hasPermission("plots.admin.build.road");
+
+        //Get the Player
+        PlotPlayer<?> plotPlayer = plotAPI.wrapPlayer(player.getUniqueId());
+        if(plotPlayer == null) return true;
+
+        //Get the UUID of the PlotPlayer
+        UUID uuid = plotPlayer.getUUID();
+
+        //Return if they are added to the plot or if they are OP and have the Permission to build anywhere
+        return plot.isAdded(uuid) || plotPlayer.hasPermission("plots.admin.build.other");
+
     }
 }
