@@ -37,6 +37,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.command.*;
+import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -61,6 +63,7 @@ public class CommandEx implements CommandExecutor, TabCompleter {
     final String RELOAD = ChatColor.YELLOW + "/ase reload";
     final String GIVECUSTOMMODEL = ChatColor.YELLOW + "/ase give";
     final String GIVEPLAYERHEAD = ChatColor.YELLOW + "/ase playerhead <name>";
+    final String GETARMORSTATS = ChatColor.YELLOW + "/ase stats";
     Gson gson = new Gson();
 
     public CommandEx(ArmorStandEditorPlugin armorStandEditorPlugin) {
@@ -105,6 +108,7 @@ public class CommandEx implements CommandExecutor, TabCompleter {
                 player.sendMessage(RELOAD);
                 player.sendMessage(GIVECUSTOMMODEL);
                 player.sendMessage(GIVEPLAYERHEAD);
+                player.sendMessage(GETARMORSTATS);
                 return true;
             }
             switch (args[0].toLowerCase()) {
@@ -118,6 +122,7 @@ public class CommandEx implements CommandExecutor, TabCompleter {
                 case "give" -> commandGive(player);
                 case "playerhead" -> commandGivePlayerHead(player, args);
                 case "reload" -> commandReload(player);
+                case "stats" -> commandStats(player);
                 default -> {
                     sender.sendMessage(LISTMODE);
                     sender.sendMessage(LISTAXIS);
@@ -129,12 +134,12 @@ public class CommandEx implements CommandExecutor, TabCompleter {
                     sender.sendMessage(RELOAD);
                     sender.sendMessage(GIVECUSTOMMODEL);
                     sender.sendMessage(GIVEPLAYERHEAD);
+                    sender.sendMessage(GETARMORSTATS);
                 }
             }
             return true;
         }
     }
-
 
     // Implemented to fix:
     // https://github.com/Wolfieheart/ArmorStandEditor-Issues/issues/35 &
@@ -370,6 +375,68 @@ public class CommandEx implements CommandExecutor, TabCompleter {
         sender.sendMessage(plugin.getLang().getMessage("reloaded", "info"));
     }
 
+    private void commandStats(Player player) {
+        if(!getPermissionStats(player)) return;
+        for(Entity e : player.getNearbyEntities(1,1,1)){
+            if(e instanceof ArmorStand as){
+
+                //Calculation TIME - Might move this out later, but is OK here for now
+                double headX = as.getHeadPose().getX(); headX = Math.toDegrees(headX); headX = Math.rint(headX);
+                double headY = as.getHeadPose().getY(); headY = Math.toDegrees(headY); headY = Math.rint(headY);
+                double headZ = as.getHeadPose().getZ(); headZ = Math.toDegrees(headZ); headZ = Math.rint(headZ);
+
+                double bodyX = as.getBodyPose().getX(); bodyX = Math.toDegrees(bodyX); bodyX = Math.rint(bodyX);
+                double bodyY = as.getBodyPose().getY(); bodyY = Math.toDegrees(bodyY); bodyY = Math.rint(bodyY);
+                double bodyZ = as.getBodyPose().getZ(); bodyZ = Math.toDegrees(bodyZ); bodyZ = Math.rint(bodyZ);
+
+                double rightArmX = as.getRightArmPose().getX(); rightArmX = Math.toDegrees(rightArmX); rightArmX = Math.rint(rightArmX);
+                double rightArmY = as.getRightArmPose().getY(); rightArmY = Math.toDegrees(rightArmY); rightArmY = Math.rint(rightArmY);
+                double rightArmZ = as.getRightArmPose().getZ(); rightArmZ = Math.toDegrees(rightArmZ); rightArmZ = Math.rint(rightArmZ);
+
+                double leftArmX = as.getLeftArmPose().getX(); leftArmX = Math.toDegrees(leftArmX); leftArmX = Math.rint(leftArmX);
+                double leftArmY = as.getLeftArmPose().getY(); leftArmY = Math.toDegrees(leftArmY); leftArmY = Math.rint(leftArmY);
+                double leftArmZ = as.getLeftArmPose().getZ(); leftArmZ = Math.toDegrees(leftArmZ); leftArmZ = Math.rint(leftArmZ);
+
+                double rightLegX = as.getRightLegPose().getX(); rightLegX = Math.toDegrees(rightLegX); rightLegX = Math.rint(rightLegX);
+                double rightLegY = as.getRightLegPose().getY(); rightLegY = Math.toDegrees(rightLegY); rightLegY = Math.rint(rightLegY);
+                double rightLegZ = as.getRightLegPose().getZ(); rightLegZ = Math.toDegrees(rightLegZ); rightArmX = Math.rint(rightLegZ);
+
+                double leftLegX = as.getLeftLegPose().getX(); leftLegX = Math.toDegrees(leftLegX); leftLegX = Math.rint(leftLegX);
+                double leftLegY = as.getLeftLegPose().getY(); leftLegY = Math.toDegrees(leftLegY); leftLegY = Math.rint(leftLegY);
+                double leftLegZ = as.getLeftLegPose().getZ(); leftLegZ = Math.toDegrees(leftLegZ); leftLegZ = Math.rint(leftLegZ);
+
+                float locationX = (float) as.getLocation().getX();
+                float locationY = (float) as.getLocation().getY();
+                float locationZ = (float) as.getLocation().getZ();
+
+                boolean isVisible = as.isVisible();
+                boolean armsVisible = as.hasArms();
+                boolean basePlateVisible = as.hasBasePlate();
+                boolean isVulnerable = as.isInvulnerable();
+                boolean hasGravity = as.hasGravity();
+                boolean isSmall = as.isSmall();
+                boolean isLocked = plugin.scoreboard.getTeam(plugin.lockedTeam).hasEntry(as.getUniqueId().toString());
+
+                player.sendMessage(ChatColor.YELLOW + "--------- Armor Stand Statistics ---------");
+                player.sendMessage(ChatColor.YELLOW + plugin.getLang().getMessage("stats"));
+                player.sendMessage(ChatColor.YELLOW + "Head: " + ChatColor.AQUA + headX + " / " + headY + " / " + headZ);
+                player.sendMessage(ChatColor.YELLOW + "Body: " + ChatColor.AQUA + bodyX + " / " + bodyY + " / " + bodyZ);
+                player.sendMessage(ChatColor.YELLOW + "Right Arm: " + ChatColor.AQUA + rightArmX + " / " + rightArmY + " / " + rightArmZ);
+                player.sendMessage(ChatColor.YELLOW + "Left Arm: " + ChatColor.AQUA + leftArmX + " / " + leftArmY + " / " + leftArmZ);
+                player.sendMessage(ChatColor.YELLOW + "Right Leg: " + ChatColor.AQUA + rightLegX + " / " + rightLegY + " / " + rightLegZ);
+                player.sendMessage(ChatColor.YELLOW + "Left Leg: " + ChatColor.AQUA + leftLegX + " / " + leftLegY + " / " + leftLegZ);
+                player.sendMessage(ChatColor.YELLOW + "Coordinates: " + ChatColor.AQUA + " x: " + locationX + " / y: " + locationY + " / z: " + locationZ);
+                player.sendMessage(ChatColor.YELLOW + "Is Visible: " + ChatColor.AQUA + isVisible + ". " + ChatColor.YELLOW + "Arms Visible: " + ChatColor.AQUA + armsVisible + ". " + ChatColor.YELLOW + "Base Plate Visible: "+ ChatColor.AQUA + basePlateVisible);
+                player.sendMessage(ChatColor.YELLOW + "Is Vulnerable: " + ChatColor.AQUA + isVulnerable + ". " + ChatColor.YELLOW + "Affected by Gravity: " + ChatColor.AQUA + hasGravity);
+                player.sendMessage(ChatColor.YELLOW + "Is Small: " + ChatColor.AQUA + isSmall + ". " + ChatColor.YELLOW + "Is Locked: " + ChatColor.AQUA + isLocked);
+                player.sendMessage(ChatColor.YELLOW + "---------------------------------------------");
+            } else{
+                player.sendMessage("nopermoption", "warn", "stats");
+            }
+        }
+    }
+
+
     private boolean checkPermission(Player player, String permName, boolean sendMessageOnInvalidation) {
         if (permName.equalsIgnoreCase("paste")) {
             permName = "copy";
@@ -387,21 +454,20 @@ public class CommandEx implements CommandExecutor, TabCompleter {
     private boolean getPermissionBasic(Player player) {
         return checkPermission(player, "basic", false);
     }
-
     private boolean getPermissionGive(Player player) {
         return checkPermission(player, "give", false);
     }
-
     private boolean getPermissionUpdate(Player player) {
         return checkPermission(player, "update", false);
     }
-
     private boolean getPermissionReload(Player player) {
         return checkPermission(player, "reload", false);
     }
-
     private boolean getPermissionPlayerHead(Player player) {
         return checkPermission(player, "head", false);
+    }
+    private boolean getPermissionStats(Player player) {
+        return checkPermission(player, "stats", false);
     }
 
     //REFACTOR COMPLETION
@@ -432,6 +498,10 @@ public class CommandEx implements CommandExecutor, TabCompleter {
                 }
                 if (getPermissionPlayerHead(player) && plugin.getAllowedToRetrievePlayerHead()) {
                     argList.add("playerhead");
+                }
+
+                if (getPermissionStats(player)){
+                    argList.add("stats");
                 }
             }
 
