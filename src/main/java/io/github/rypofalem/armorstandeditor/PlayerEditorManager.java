@@ -38,6 +38,7 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.util.Vector;
 
@@ -235,8 +236,11 @@ public class PlayerEditorManager implements Listener {
         }
 
         if(event.getEntity() instanceof ArmorStand entityAS && entityAS.isDead()){
+            //TODO: Find a more permanent fix for "Once you destroy that armor stand, the armor stand will keep it's name and colour given by the name tag." THIS IS A TEMP SOLUTION FOR NOW.
             entityAS.setCustomName(null);
             entityAS.setCustomNameVisible(false);
+
+            event.setCancelled(false);
         }
     }
 
