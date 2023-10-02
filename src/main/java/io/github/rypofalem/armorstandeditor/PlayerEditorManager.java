@@ -233,6 +233,11 @@ public class PlayerEditorManager implements Listener {
                 }
             }
         }
+
+        if(event.getEntity() instanceof ArmorStand entityAS && entityAS.isDead()){
+            entityAS.setCustomName(null);
+            entityAS.setCustomNameVisible(false);
+        }
     }
 
     @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
