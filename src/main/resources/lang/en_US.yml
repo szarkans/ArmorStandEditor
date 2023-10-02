@@ -90,6 +90,8 @@ unabledestroycreative:
   msg: Unable to Destroy this Invulnerable ArmorStand in Creative Mode.
 notincorrectworld:
   msg: Sorry but you are not in the correct world to use ArmorStandEditor.
+stats:
+  msg: Here are the statistics for your ArmorStand.
 playerheadhelp:
   msg: "Please use /ase playerhead <name> to get a players head. Ex of the command - /ase playerhead Wolfieheart_"
 help:
@@ -134,6 +136,9 @@ nopermoption:
   paste: Paste ArmorStand Config
   copy: Copy ArmorStand Config
   reset: Reset ArmorStand Config
+  stats: View ArmorStand Statistics
+norangestats:
+  msg: Please get next to an ArmorStand before running this command.
 noslotnumcom:
   msg: You must specify a slot number!
 noadjcom:

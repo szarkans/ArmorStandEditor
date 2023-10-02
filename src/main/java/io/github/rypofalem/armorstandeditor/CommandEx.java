@@ -72,6 +72,7 @@ public class CommandEx implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
         if (sender instanceof ConsoleCommandSender) { //Fix to Support #267
             if (args.length == 0) {
                 sender.sendMessage(VERSION);
@@ -305,8 +306,8 @@ public class CommandEx implements CommandExecutor, TabCompleter {
         if (args.length > 1) {
             for (EditMode mode : EditMode.values()) {
                 if (mode.toString().toLowerCase().contentEquals(args[1].toLowerCase())) {
-                    if (args[1].equals("invisible") && !checkPermission(player, "togglearmorstandvisibility", true)) return;
-                    if (args[1].equals("itemframe") && !checkPermission(player, "toggleitemframevisibility", true)) return;
+                    if (args[1].equals("invisible") && !(checkPermission(player, "togglearmorstandvisibility", true) || plugin.getArmorStandVisibility())) return;
+                    if (args[1].equals("itemframe") && !(checkPermission(player, "toggleitemframevisibility", true) || plugin.getItemFrameVisibility())) return;
                     plugin.editorManager.getPlayerEditor(player.getUniqueId()).setMode(mode);
                     return;
                 }
@@ -417,7 +418,7 @@ public class CommandEx implements CommandExecutor, TabCompleter {
                 boolean isSmall = as.isSmall();
                 boolean isLocked = plugin.scoreboard.getTeam(plugin.lockedTeam).hasEntry(as.getUniqueId().toString());
 
-                player.sendMessage(ChatColor.YELLOW + "--------- Armor Stand Statistics ---------");
+                player.sendMessage(ChatColor.YELLOW + "----------- Armor Stand Statistics -----------");
                 player.sendMessage(ChatColor.YELLOW + plugin.getLang().getMessage("stats"));
                 player.sendMessage(ChatColor.YELLOW + "Head: " + ChatColor.AQUA + headX + " / " + headY + " / " + headZ);
                 player.sendMessage(ChatColor.YELLOW + "Body: " + ChatColor.AQUA + bodyX + " / " + bodyY + " / " + bodyZ);
@@ -429,9 +430,9 @@ public class CommandEx implements CommandExecutor, TabCompleter {
                 player.sendMessage(ChatColor.YELLOW + "Is Visible: " + ChatColor.AQUA + isVisible + ". " + ChatColor.YELLOW + "Arms Visible: " + ChatColor.AQUA + armsVisible + ". " + ChatColor.YELLOW + "Base Plate Visible: "+ ChatColor.AQUA + basePlateVisible);
                 player.sendMessage(ChatColor.YELLOW + "Is Vulnerable: " + ChatColor.AQUA + isVulnerable + ". " + ChatColor.YELLOW + "Affected by Gravity: " + ChatColor.AQUA + hasGravity);
                 player.sendMessage(ChatColor.YELLOW + "Is Small: " + ChatColor.AQUA + isSmall + ". " + ChatColor.YELLOW + "Is Locked: " + ChatColor.AQUA + isLocked);
-                player.sendMessage(ChatColor.YELLOW + "---------------------------------------------");
+                player.sendMessage(ChatColor.YELLOW + "----------------------------------------------");
             } else{
-                player.sendMessage("nopermoption", "warn", "stats");
+                player.sendMessage(plugin.getLang().getMessage("norangeforstats", "warn"));
             }
         }
     }
