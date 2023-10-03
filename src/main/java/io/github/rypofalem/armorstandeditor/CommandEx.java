@@ -596,7 +596,7 @@ public class CommandEx implements CommandExecutor, TabCompleter {
             "Size", "Copy", "Paste", "Head", "Body", "LeftArm",
             "RightArm", "LeftLeg", "RightLeg", "Placement",
             "DisableSlots", "Rotate", "Equipment", "Reset",
-            "ItemFrame", "ItemFrameGlow"
+            "ItemFrame", "ItemFrameGlow", "Vulnerability", "ArmorStandGlow"
         );
     }
 
