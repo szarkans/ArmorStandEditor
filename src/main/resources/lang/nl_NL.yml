@@ -70,10 +70,12 @@ nodoubletarget:
   msg: Kijk naar een ArmorStand of een ItemFrame voor je van hand verandert!
 give:
   msg: Speler heeft een item met CustomModelData ontvangen
-notincorrectworld:
-  msg: Sorry, maar uw zijn niet in de juiste wierld om ArmorStandEditor te gebruiken.
 unabledestroycreative:
-  msg: Kan deze Invulnerable ArmorStand niet vernietigen in Creative Modus.
+  msg: Unable to Destroy this Invulnerable ArmorStand in Creative Mode.
+notincorrectworld:
+  msg: Sorry but you are not in the correct world to use ArmorStandEditor.
+playerheadhelp:
+  msg: "Please use /ase playerhead <name> to get a players head. Ex of the command - /ase playerhead Wolfieheart_"
 #Help
 help:
   msg: "1. Houd het wijzigingsgereedschap (<x>) in uw hoofdhand.
@@ -101,6 +103,9 @@ playerhead:
   msg: Player Head opgehaald.
 playerheaderror:
   msg: Probleem om Player Head af te halen.
+stats:
+  msg: Here are the statistics for your ArmorStand.
+
 #warn
 cantedit:
   msg: Sorry, je kunt hier geen armorstands aanpassen!
@@ -120,6 +125,10 @@ nopermoption:
   paste: Paste ArmorStand Config
   copy: Copy ArmorStand Config
   reset: Reset ArmorStand Config
+  stats: View ArmorStand Statistics
+  armorstandglow: Toggle ArmorStand Glow
+norangestats:
+  msg: Please get next to an ArmorStand before running this command.
 noslotnumcom:
   msg: Je moet een slot nummer opgeven!
 noadjcom:
@@ -240,10 +249,22 @@ vulnerability:
   msg: Kwetsbaarheid
   description:
     msg: In en uit schakelen van Kwetsbaarheid.
-blankslot:
-  msg: Niets hier
+itemframevisible:
+  msg: Itemframe Visibility
   description:
-    msg: Gewoon een placeholder item. Op mij klikken zal niets doen.
+    msg: Toggles an itemframes visibility
+playerheadmenu:
+  msg: Player Head
+  description:
+    msg: Please use /ase playerhead <name>
+blankslot:
+  msg: Nothing here
+  description:
+    msg: Just a placeholder item. Clicking me will not do anything.
+armorstandglow:
+  msg: Toggle ArmorStand Glow
+  description:
+    msg: Turn ArmorStand Glowing on or off.
 
 #icons (equipment menu)
 disabled:

@@ -93,6 +93,8 @@ helpdiscord:
   msg: "or join our Discord: https://discord.gg/3BbJKWpTCj"
 give:
   msg: Player given Item with CustomModelData
+stats:
+  msg: Here are the statistics for your ArmorStand.
 
 #warn
 cantedit:
@@ -113,6 +115,10 @@ nopermoption:
   paste: Paste ArmorStand Config
   copy: Copy ArmorStand Config
   reset: Reset ArmorStand Config
+  stats: View ArmorStand Statistics
+  armorstandglow: Toggle ArmorStand Glow
+norangestats:
+  msg: Please get next to an ArmorStand before running this command.
 noslotnumcom:
   msg: Укажите номер слота (1-9)
 noadjcom:
@@ -246,14 +252,18 @@ itemframevisible:
   msg: Видимость рамки
   description:
     msg: Включить или выключить видимость рамки
-vulnerability:
-  msg: Toggle Vulnerability
+playerheadmenu:
+  msg: Player Head
   description:
-    msg: Toggles an item's vulnerability state
+    msg: Please use /ase playerhead <name>
 blankslot:
   msg: Nothing here
   description:
     msg: Just a placeholder item. Clicking me will not do anything.
+armorstandglow:
+  msg: Toggle ArmorStand Glow
+  description:
+    msg: Turn ArmorStand Glowing on or off.
 
 #icons (equipment menu)
 disabled:

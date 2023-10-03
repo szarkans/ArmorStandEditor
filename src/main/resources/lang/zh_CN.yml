@@ -106,6 +106,8 @@ notincorrectworld:
   msg: Sorry but you are not in the correct world to use ArmorStandEditor.
 unabledestroycreative:
   msg: Unable to Destroy this Invulnerable ArmorStand in Creative Mode.
+stats:
+  msg: Here are the statistics for your ArmorStand.
 
 #警告
 cantedit:
@@ -126,6 +128,10 @@ nopermoption:
   paste: Paste ArmorStand Config
   copy: Copy ArmorStand Config
   reset: Reset ArmorStand Config
+  stats: View ArmorStand Statistics
+  armorstandglow: Toggle ArmorStand Glow
+norangestats:
+  msg: Please get next to an ArmorStand before running this command.
 noslotnumcom:
   msg: 你必须选择一个物品栏!
 noadjcom:
@@ -254,6 +260,15 @@ blankslot:
   msg: Nothing here
   description:
     msg: Just a placeholder item. Clicking me will not do anything.
+playerheadmenu:
+  msg: Player Head
+  description:
+    msg: Please use /ase playerhead <name>
+armorstandglow:
+  msg: Toggle ArmorStand Glow
+  description:
+    msg: Turn ArmorStand Glowing on or off.
+
 #图标 (装备)
 disabled:
   msg: 关闭

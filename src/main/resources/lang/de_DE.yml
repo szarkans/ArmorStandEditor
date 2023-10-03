@@ -80,6 +80,8 @@ notincorrectworld:
   msg: Sorry but you are not in the correct world to use ArmorStandEditor.
 unabledestroycreative:
   msg: Unable to Destroy this Invulnerable ArmorStand in Creative Mode.
+stats:
+  msg: Here are the statistics for your ArmorStand.
 help:
   msg: "1. Halte das Bearbeitungswerkzeug(<x>) in deiner Haupthand.
 
@@ -124,8 +126,12 @@ nopermoption:
   paste: Paste ArmorStand Config
   copy: Copy ArmorStand Config
   reset: Reset ArmorStand Config
+  stats: View ArmorStand Statistics
+  armorstandglow: Toggle ArmorStand Glow
 noslotnumcom:
   msg: Du musst eine Slotnummer angeben!
+norangestats:
+  msg: Please get next to an ArmorStand before running this command.
 noadjcom:
   msg: Du musst Grob oder Fein auswählen!
 noaxiscom:
@@ -246,10 +252,22 @@ helpgui:
   msg: Hilfe!
   description:
     msg: Klicke hier um Hilfe zu erhalten!
+itemframevisible:
+  msg: Itemframe Visibility
+  description:
+    msg: Toggles an itemframes visibility
+playerheadmenu:
+  msg: Player Head
+  description:
+    msg: Please use /ase playerhead <name>
 blankslot:
   msg: Nothing here
   description:
     msg: Just a placeholder item. Clicking me will not do anything.
+armorstandglow:
+  msg: Toggle ArmorStand Glow
+  description:
+    msg: Turn ArmorStand Glowing on or off.
 
 #icons (equipment menu)
 disabled:
