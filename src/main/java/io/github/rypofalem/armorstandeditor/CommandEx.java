@@ -382,34 +382,89 @@ public class CommandEx implements CommandExecutor, TabCompleter {
             if(e instanceof ArmorStand as){
 
                 //Calculation TIME - Might move this out later, but is OK here for now
-                double headX = as.getHeadPose().getX(); headX = Math.toDegrees(headX); headX = Math.rint(headX);
-                double headY = as.getHeadPose().getY(); headY = Math.toDegrees(headY); headY = Math.rint(headY);
-                double headZ = as.getHeadPose().getZ(); headZ = Math.toDegrees(headZ); headZ = Math.rint(headZ);
+                double headX = as.getHeadPose().getX();
+                headX = Math.toDegrees(headX);
+                headX = Math.rint(headX);
 
-                double bodyX = as.getBodyPose().getX(); bodyX = Math.toDegrees(bodyX); bodyX = Math.rint(bodyX);
-                double bodyY = as.getBodyPose().getY(); bodyY = Math.toDegrees(bodyY); bodyY = Math.rint(bodyY);
-                double bodyZ = as.getBodyPose().getZ(); bodyZ = Math.toDegrees(bodyZ); bodyZ = Math.rint(bodyZ);
+                double headY = as.getHeadPose().getY();
+                headY = Math.toDegrees(headY);
+                headY = Math.rint(headY);
 
-                double rightArmX = as.getRightArmPose().getX(); rightArmX = Math.toDegrees(rightArmX); rightArmX = Math.rint(rightArmX);
-                double rightArmY = as.getRightArmPose().getY(); rightArmY = Math.toDegrees(rightArmY); rightArmY = Math.rint(rightArmY);
-                double rightArmZ = as.getRightArmPose().getZ(); rightArmZ = Math.toDegrees(rightArmZ); rightArmZ = Math.rint(rightArmZ);
+                double headZ = as.getHeadPose().getZ();
+                headZ = Math.toDegrees(headZ);
+                headZ = Math.rint(headZ);
 
-                double leftArmX = as.getLeftArmPose().getX(); leftArmX = Math.toDegrees(leftArmX); leftArmX = Math.rint(leftArmX);
-                double leftArmY = as.getLeftArmPose().getY(); leftArmY = Math.toDegrees(leftArmY); leftArmY = Math.rint(leftArmY);
-                double leftArmZ = as.getLeftArmPose().getZ(); leftArmZ = Math.toDegrees(leftArmZ); leftArmZ = Math.rint(leftArmZ);
+                //Body
+                double bodyX = as.getBodyPose().getX();
+                bodyX = Math.toDegrees(bodyX);
+                bodyX = Math.rint(bodyX);
 
-                double rightLegX = as.getRightLegPose().getX(); rightLegX = Math.toDegrees(rightLegX); rightLegX = Math.rint(rightLegX);
-                double rightLegY = as.getRightLegPose().getY(); rightLegY = Math.toDegrees(rightLegY); rightLegY = Math.rint(rightLegY);
-                double rightLegZ = as.getRightLegPose().getZ(); rightLegZ = Math.toDegrees(rightLegZ); rightArmX = Math.rint(rightLegZ);
+                double bodyY = as.getBodyPose().getY();
+                bodyY = Math.toDegrees(bodyY);
+                bodyY = Math.rint(bodyY);
 
-                double leftLegX = as.getLeftLegPose().getX(); leftLegX = Math.toDegrees(leftLegX); leftLegX = Math.rint(leftLegX);
-                double leftLegY = as.getLeftLegPose().getY(); leftLegY = Math.toDegrees(leftLegY); leftLegY = Math.rint(leftLegY);
-                double leftLegZ = as.getLeftLegPose().getZ(); leftLegZ = Math.toDegrees(leftLegZ); leftLegZ = Math.rint(leftLegZ);
+                double bodyZ = as.getBodyPose().getZ();
+                bodyZ = Math.toDegrees(bodyZ);
+                bodyZ = Math.rint(bodyZ);
 
+
+                //Arms
+                double rightArmX = as.getRightArmPose().getX();
+                rightArmX = Math.toDegrees(rightArmX);
+                rightArmX = Math.rint(rightArmX);
+
+                double rightArmY = as.getRightArmPose().getY();
+                rightArmY = Math.toDegrees(rightArmY);
+                rightArmY = Math.rint(rightArmY);
+
+                double rightArmZ = as.getRightArmPose().getZ();
+                rightArmZ = Math.toDegrees(rightArmZ);
+                rightArmZ = Math.rint(rightArmZ);
+
+
+                double leftArmX = as.getLeftArmPose().getX();
+                leftArmX = Math.toDegrees(leftArmX);
+                leftArmX = Math.rint(leftArmX);
+
+                double leftArmY = as.getLeftArmPose().getY();
+                leftArmY = Math.toDegrees(leftArmY);
+                leftArmY = Math.rint(leftArmY);
+
+                double leftArmZ = as.getLeftArmPose().getZ();
+                leftArmZ = Math.toDegrees(leftArmZ);
+                leftArmZ = Math.rint(leftArmZ);
+
+                //Legs
+                double rightLegX = as.getRightLegPose().getX();
+                rightLegX = Math.toDegrees(rightLegX);
+                rightLegX = Math.rint(rightLegX);
+
+                double rightLegY = as.getRightLegPose().getY();
+                rightLegY = Math.toDegrees(rightLegY);
+                rightLegY = Math.rint(rightLegY);
+
+                double rightLegZ = as.getRightLegPose().getZ();
+                rightLegZ = Math.toDegrees(rightLegZ);
+                rightArmX = Math.rint(rightLegZ);
+
+                double leftLegX = as.getLeftLegPose().getX();
+                leftLegX = Math.toDegrees(leftLegX);
+                leftLegX = Math.rint(leftLegX);
+
+                double leftLegY = as.getLeftLegPose().getY();
+                leftLegY = Math.toDegrees(leftLegY);
+                leftLegY = Math.rint(leftLegY);
+
+                double leftLegZ = as.getLeftLegPose().getZ();
+                leftLegZ = Math.toDegrees(leftLegZ);
+                leftLegZ = Math.rint(leftLegZ);
+
+                //Coordinates
                 float locationX = (float) as.getLocation().getX();
                 float locationY = (float) as.getLocation().getY();
                 float locationZ = (float) as.getLocation().getZ();
 
+                //Toggles
                 boolean isVisible = as.isVisible();
                 boolean armsVisible = as.hasArms();
                 boolean basePlateVisible = as.hasBasePlate();
