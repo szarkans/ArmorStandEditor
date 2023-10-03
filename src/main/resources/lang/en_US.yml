@@ -129,7 +129,7 @@ nopermoption:
   armorstandvisibility: Armor Stand Visibility
   baseplate: Set Baseplate Visibility
   gravity: Toggle Gravity
-  vulnerability: Toggle Vulnerability!
+  vulnerability: Toggle Vulnerability
   itemframevisibility: Item Frame Visibility
   size: Toggle ArmorStand Size
   disableslots: Toggle Equipment Lock
@@ -137,6 +137,7 @@ nopermoption:
   copy: Copy ArmorStand Config
   reset: Reset ArmorStand Config
   stats: View ArmorStand Statistics
+  armorstandglow: Toggle ArmorStand Glow
 norangestats:
   msg: Please get next to an ArmorStand before running this command.
 noslotnumcom:
@@ -277,6 +278,10 @@ blankslot:
   msg: Nothing here
   description:
     msg: Just a placeholder item. Clicking me will not do anything.
+armorstandglow:
+  msg: Toggle ArmorStand Glow
+  description:
+    msg: Turn ArmorStand Glowing on or off.
 
 #icons (equipment menu)
 disabled:

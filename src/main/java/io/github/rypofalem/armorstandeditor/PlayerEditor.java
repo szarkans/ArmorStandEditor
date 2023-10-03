@@ -170,6 +170,9 @@ public class PlayerEditor {
                 case RESET:
                     resetPosition(armorStand);
                     break;
+                case GLOWING:
+                    toggleGlowing(armorStand);
+                    break;
                 case NONE:
                 default:
                     sendMessage("nomode", null);
@@ -426,6 +429,17 @@ public class PlayerEditor {
             sendMessage("nopermoption", "warn", "baseplate");
         }
 
+    }
+
+    void toggleGlowing(ArmorStand armorStand){
+        if(getPlayer().hasPermission("asedit.togglearmorstandglow")){
+            //Will only make it glow white - Not something we can do like with Locking. Do not request this!
+            //Otherwise, this simple function becomes a mess to maintain. As you would need a Team generated with each
+            //Color and I ain't going to impose that on servers.
+            armorStand.setGlowing(!armorStand.isGlowing());
+        } else{
+            sendMessage("nopermoption", "warn", "armorstandglow");
+        }
     }
 
     void toggleArms(ArmorStand armorStand) {

@@ -66,6 +66,7 @@ public class Menu {
         ItemStack visibility;
         ItemStack size = null;
         ItemStack rightLegPos;
+        ItemStack glowing;
         ItemStack leftLegPos;
         ItemStack plate = null;
         ItemStack copy = null;
@@ -225,26 +226,23 @@ public class Menu {
             playerHead = blankSlot;
         }
 
+        if (pe.getPlayer().hasPermission("asedit.togglearmorstandglow")){
+            glowing = createIcon(new ItemStack(Material.GLOW_INK_SAC, 1),
+                    "armorstandglow",
+                    "mode armorstandglow");
+        } else{
+            glowing = blankSlot;
+        }
+
         help = createIcon(new ItemStack(Material.NETHER_STAR), "helpgui", "help");
 
-/*
-        ItemStack[] items =
-            {
-                xAxis, yAxis, zAxis, null, coarseAdj, fineAdj, null, rotate, place,
-                null, headPos, playerHead, null, null, null, null, null, null,
-                rightArmPos, bodyPos, leftArmPos, reset, null, null, showArms, visibility, size,
-                rightLegPos, equipment, leftLegPos, null, null, toggleVulnerabilty, disableSlots, gravity, plate,
-                null, copy, paste, null, null, null, null, itemFrameVisible, null,
-                slot1, slot2, slot3, slot4, null, null, null, null, help
-            };
-*/
 
         ItemStack[] items = {
                 blankSlot, blankSlot, blankSlot, xAxis, yAxis, zAxis, blankSlot, blankSlot, help,
                 copy, paste, blankSlot, playerHead, headPos, reset, blankSlot, itemFrameVisible, blankSlot,
                 slot1, slot2, blankSlot, rightArmPos, bodyPos, leftArmPos, blankSlot, rotate, place,
                 slot3, slot4, blankSlot, rightLegPos, equipment, leftLegPos, blankSlot, coarseAdj, fineAdj,
-                blankSlot, blankSlot, blankSlot, blankSlot, blankSlot, blankSlot, blankSlot, blankSlot, blankSlot,
+                blankSlot, glowing, blankSlot, blankSlot, blankSlot, blankSlot, blankSlot, blankSlot, blankSlot,
                 blankSlot, showArms, visibility, size, gravity, plate, toggleVulnerabilty, disableSlots, blankSlot
         };
 

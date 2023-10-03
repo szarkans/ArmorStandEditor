@@ -416,6 +416,7 @@ public class CommandEx implements CommandExecutor, TabCompleter {
                 boolean isVulnerable = as.isInvulnerable();
                 boolean hasGravity = as.hasGravity();
                 boolean isSmall = as.isSmall();
+                boolean isGlowing = as.isGlowing();
                 boolean isLocked = plugin.scoreboard.getTeam(plugin.lockedTeam).hasEntry(as.getUniqueId().toString());
 
                 player.sendMessage(ChatColor.YELLOW + "----------- Armor Stand Statistics -----------");
@@ -429,7 +430,7 @@ public class CommandEx implements CommandExecutor, TabCompleter {
                 player.sendMessage(ChatColor.YELLOW + "Coordinates: " + ChatColor.AQUA + " x: " + locationX + " / y: " + locationY + " / z: " + locationZ);
                 player.sendMessage(ChatColor.YELLOW + "Is Visible: " + ChatColor.AQUA + isVisible + ". " + ChatColor.YELLOW + "Arms Visible: " + ChatColor.AQUA + armsVisible + ". " + ChatColor.YELLOW + "Base Plate Visible: "+ ChatColor.AQUA + basePlateVisible);
                 player.sendMessage(ChatColor.YELLOW + "Is Vulnerable: " + ChatColor.AQUA + isVulnerable + ". " + ChatColor.YELLOW + "Affected by Gravity: " + ChatColor.AQUA + hasGravity);
-                player.sendMessage(ChatColor.YELLOW + "Is Small: " + ChatColor.AQUA + isSmall + ". " + ChatColor.YELLOW + "Is Locked: " + ChatColor.AQUA + isLocked);
+                player.sendMessage(ChatColor.YELLOW + "Is Small: " + ChatColor.AQUA + isSmall + ". " + ChatColor.YELLOW + "Is Glowing: " + ChatColor.AQUA + isGlowing + ". "  + ChatColor.YELLOW + "Is Locked: " + ChatColor.AQUA + isLocked);
                 player.sendMessage(ChatColor.YELLOW + "----------------------------------------------");
             } else{
                 player.sendMessage(plugin.getLang().getMessage("norangeforstats", "warn"));

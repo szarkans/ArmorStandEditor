@@ -86,6 +86,9 @@ permissions:
   asedit.togglegravity:
     description: Changes whether the armor stand has gravity
     default: true
+  asedit.togglearmorstandglow:
+    description: Allows toggling of the Glowing State of an ArmorStand.
+    default: true
   asedit.stats:
     description: Ability to view ArmorStand Stats.
     default: true
@@ -162,6 +165,7 @@ permissions:
       asedit.togglesize: true
       asedit.togglearmorstandvisibility: true
       asedit.toggleitemframevisibility: true
+      asedit.togglearmorstandglow: true
       asedit.permpack.dontIgnoreProtections: true
 
   asedit.permpack.admin:
