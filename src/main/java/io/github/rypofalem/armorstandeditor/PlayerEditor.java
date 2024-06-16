@@ -622,7 +622,7 @@ public class PlayerEditor {
                 plugin.getServer().getPlayer(getUUID()).spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(message));
             } else {
                 String rawText = plugin.getLang().getRawMessage(path, format, option);
-                String command = "title %s actionbar %s".formatted(plugin.getServer().getPlayer(getUUID()).getName(), rawText);
+                String command = "minecraft:title %s actionbar %s".formatted(plugin.getServer().getPlayer(getUUID()).getName(), rawText);
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
             }
         } else {

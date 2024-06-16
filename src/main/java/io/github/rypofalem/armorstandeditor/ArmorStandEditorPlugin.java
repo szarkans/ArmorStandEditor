@@ -412,7 +412,7 @@ public class ArmorStandEditorPlugin extends JavaPlugin {
 
     public boolean getHasSpigot() {
         try {
-            Class.forName("org.spigotmc.SpigotConfig");
+            Class.forName("org.spigotmc.CustomTimingsHandler");
             nmsVersionNotLatest = "SpigotMC ASAP.";
             return true;
         } catch (ClassNotFoundException e) {
